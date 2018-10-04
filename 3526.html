@@ -19,13 +19,14 @@
         
 
         $.ajax({
+	        type: "GET",
             url: '3526.php',
             data: {
                 text: document.getElementById("etext").val(),
                 key: document.getElementById("ekey").val(),
                 action: 'encrypt'
             },
-            dataType : 'json'
+            
         });
     });
 });	

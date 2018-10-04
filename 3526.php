@@ -29,7 +29,7 @@ function encrypt_decrypt($action, $string) {
 $plain_txt = $_GET['text'];
 $action = $_GET['action'];
 echo "Plain Text =" .$plain_txt. "\n";
-$encrypted_txt = encrypt_decrypt('$action', $plain_txt);
+$encrypted_txt = encrypt_decrypt($action, $plain_txt);
 echo "Encrypted Text = " .$encrypted_txt. "\n";
 $decrypted_txt = encrypt_decrypt('decrypt', $encrypted_txt);
 echo "Decrypted Text =" .$decrypted_txt. "\n";
