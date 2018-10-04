@@ -1,15 +1,28 @@
 
 
-<form action="3526.php" method="post">
+<form action='3526.php' method="post" >
     K:  <input type="text" name="key" /><br />
     toET: <input type="text" name="enctext" /><br />
-    <input ID='encrypted' type="submit" name="submit" value="Encrypt me!" />
+   <button id="encrypted" name="submit" onClick='location.href="?button1=1"'>Encrypt me!</button>
+    
 </form>
 
-<form action="3526.php" method="post">
+<form action='3526.php' method="post">
     K:  <input type="text" name="xkey" /><br />
     fromET: <input type="text" name="dectext" /><br />
-    <input ID='decrypted' type="submit" name="xsubmit" value="Decrypt me!" />
+    <button id="decrypted" name="submit" onClick='location.href="?button1=1"'>Decrypt me!</button>
 </form>
+
+<script>
+	
+	$.ajax({ url: '/my/site',
+         data: {action: 'test'},
+         type: 'post',
+         success: function(output) {
+                      alert(output);
+                  }
+});
+	adas
+</script>
 
 
