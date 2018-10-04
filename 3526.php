@@ -8,8 +8,7 @@
  *
  * @return string
  */
- $action = $_GET['action'];
- 
+  
 function encrypt_decrypt($action, $string) {
     $output = false;
     $encrypt_method = "AES-256-CBC";
@@ -29,6 +28,8 @@ function encrypt_decrypt($action, $string) {
     return $output;
 }
 $plain_txt = $_GET['text'];
+$action = $_GET['action'];
+
 
 echo "Plain Text =" .$plain_txt. "\n";
 $encrypted_txt = encrypt_decrypt($action, $plain_txt);
