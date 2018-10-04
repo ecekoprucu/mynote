@@ -25,6 +25,10 @@
                 text: document.getElementById("etext").val(),
                 key: document.getElementById("ekey").val(),
                 action: 'encrypt'
+                success: function( result ) {
+                alert("Hi, testing");
+                alert( result );
+            }
             },
             
         });
