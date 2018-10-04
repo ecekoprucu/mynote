@@ -1,28 +1,34 @@
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 
-<form action='3526.php' method="post" >
-    K:  <input type="text" name="key" /><br />
-    toET: <input type="text" name="enctext" /><br />
-   <button id="encrypted" name="submit" onClick='location.href="?button1=1"'>Encrypt me!</button>
-    
-</form>
+    K:  <input type="text" name="key" id='ekey'/><br />
+    toET: <input type="text" id='etext' name="enctext" /><br />
+   <button id="encrypted" name="submit">Encrypt me!</button>
 
-<form action='3526.php' method="post">
-    K:  <input type="text" name="xkey" /><br />
-    fromET: <input type="text" name="dectext" /><br />
-    <button id="decrypted" name="submit" onClick='location.href="?button1=1"'>Decrypt me!</button>
-</form>
-asdf
+<br><br>    
+
+    K:  <input type="text" name="xkey" id='dekey'/><br />
+    fromET: <input type="text" id='detext' name="dectext" /><br />
+    <button id="decrypted" name="submit">Decrypt me!</button>
+
+
 <script>
 	
-	$.ajax({ url: '/my/site',
-         data: {action: 'test'},
-         type: 'post',
-         success: function(output) {
-                      alert(output);
-                  }
-});
-	
+	$(function () {
+    document.getElementById("encrypted").on('click', function () {
+        
+
+        $.ajax({
+            url: '3526.php',
+            data: {
+                text: document.getElementById("etext");.val(),
+                key: document.getElementById("ekey");.val(),
+                action: 'encrypt'
+            },
+            dataType : 'json'
+        });
+    });
+});	
 </script>
 
 
