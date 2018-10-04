@@ -3,19 +3,18 @@
 <form action="3526.php" method="post">
     K:  <input type="text" name="key" /><br />
     toET: <input type="text" name="enctext" /><br />
-    <input class='encrypted' type="submit" name="submit" value="Encrypt me!" onclick="eatFood();" />
+    <input ID='encrypted' type="submit" name="submit" value="Encrypt me!" onclick="eatFood();" />
 </form>
 
 <form action="3526.php" method="post">
     K:  <input type="text" name="xkey" /><br />
     fromET: <input type="text" name="dectext" /><br />
-    <input class='decrypted' type="submit" name="xsubmit" value="Decrypt me!" onclick="eatFood();" />
+    <input ID='decrypted' type="submit" name="xsubmit" value="Decrypt me!" onclick="eatFood();" />
 </form>
 
 
 <script>
-	function eatFood(){
-		window.location.href='3526.php="?button1=1"'
-	}
-	
+	document.getElementById("encrypted").onclick = function() {
+  window.location.href = "https://www.example.com";
+};	
 </script>
