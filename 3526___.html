@@ -1,0 +1,182 @@
+<head><script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script></head>
+
+	<div>
+    	<span>K:</span>
+    	<input type="text" name="key" id='ekey'/>
+	</div>
+	
+    <br />
+    
+    <div>
+    	<span>toET:</span>
+    	<textarea rows="4" cols="50" id='etext' name="enctext"></textarea>
+    	
+    </div>
+
+    <br />
+
+    <div>
+        <button id="encrypted" name="submit">Encrypt me!</button>
+    </div>
+
+    <br>
+    <br>    
+
+    <div>
+        <span>K:</span>
+        <input type="text" name="xkey" id='dekey'/>
+    </div>
+
+    <br />
+    
+    <div>
+        <span>fromET:</span>
+        <input type="text" id='detext' name="dectext" />
+    </div>
+
+    <br />
+
+    <div>
+        <button id="decrypted" name="submit">Decrypt me!</button>
+    </div>
+    
+    <br />
+    <div id='results'></div>
+
+
+<script>
+    /*document.getElementById("encrypted").addEventListener("click", Encrypt);
+
+    function Encrypt(e) {
+
+      e.preventDefault();
+
+      var k = document.getElementById("ekey").value;
+      var toET = document.getElementById("etext").value;
+
+      console.log(k);
+      console.log(toET);
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          console.log(this.responseText);
+        }
+      };
+      xhttp.open("GET", "3526.php", true);
+      xhttp.send();
+
+    }
+    
+
+    
+    document.getElementById("decrypted").addEventListener("click", Decrypt);
+
+    function Decrypt(e) {
+
+      e.preventDefault();
+
+      var k = document.getElementById("dekey").value;
+      var toET = document.getElementById("dectext").value;
+
+      console.log(k);
+      console.log(toET);
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          console.log(this.responseText);
+        }
+      };
+      xhttp.open("GET", "3526.php", true);
+      xhttp.send();
+
+    }*/
+
+	
+
+    
+	
+    	
+    	/*$("#encrypted").on('click', function () {
+        	event.preventDefault();
+        
+                $.ajax({
+	        type: "GET",
+            url: '3526.php',
+            data: {
+                text: $("#etext").val(),
+                key: $("#ekey").val(),
+                action: 'encrypt'
+                
+                            },
+               
+            
+        })
+        .done(function(data){
+
+		  		$('#results').html('<?php include_once "include.php";?>');
+       })
+       .fail(function() {
+	   			$('#results').html('ANANI SIKIYIM');
+
+           });
+        });*/
+        
+        $("#encrypted").on('click', function () {
+	        
+	        $.ajax({
+
+            type: "POST",
+            url: "3526.php",
+            
+            data: "text=" +  $("#etext").val() + "&key=" + $("#ekey").val() + "&action=" + "encrypt"
+
+        })
+          .done(function(data){
+		  	
+		  	 $('#results').html(data);
+
+		  	
+       })
+       .fail(function(xhr, textStatus, errorThrown) {
+	   		 console.log('STATUS: '+textStatus+'\nERROR THROWN: '+errorThrown);
+       });
+	        
+        });
+
+		   
+
+        $("#decrypted").on('click', function () {
+	        
+	        $.ajax({
+
+            type: "POST",
+            url: "3526.php",
+            
+            data: "text=" +  $("#detext").val() + "&key=" + $("#dekey").val() + "&action=" + "decrypt"
+
+        })
+          .done(function(data){
+		  	
+		  	 $('#results').html(data);
+
+		  	
+       })
+       .fail(function(xhr, textStatus, errorThrown) {
+	   		 console.log('STATUS: '+textStatus+'\nERROR THROWN: '+errorThrown);
+       });
+	        
+        });
+
+
+       
+    
+   
+
+</script>
+
+

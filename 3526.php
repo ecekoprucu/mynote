@@ -1,4 +1,5 @@
 <?php
+	
 /**
  * simple method to encrypt or decrypt a plain text string
  * initialization vector(IV) has to be the same when encrypting and decrypting
@@ -12,7 +13,7 @@
 function encrypt_decrypt($action, $string) {
     $output = false;
     $encrypt_method = "AES-256-CBC";
-    $secret_key = $_GET['key'];
+    $secret_key = $_POST['key'];
     $secret_iv = 'This is my secret iv';
     // hash
     $key = hash('sha256', $secret_key);
@@ -27,10 +28,8 @@ function encrypt_decrypt($action, $string) {
     }
     return $output;
 }
-$plain_txt = $_GET['text'];
-$action = $_GET['action'];
-
-
+$plain_txt = $_POST['text'];
+$action = $_POST['action'];
 echo "Plain Text =" .$plain_txt. "\n";
 $encrypted_txt = encrypt_decrypt($action, $plain_txt);
 echo "Encrypted Text = " .$encrypted_txt. "\n";
@@ -39,4 +38,7 @@ echo "Decrypted Text =" .$decrypted_txt. "\n";
 if ( $plain_txt === $decrypted_txt ) echo "SUCCESS";
 else echo "FAILED";
 echo "\n";
+
+
+
 ?>
